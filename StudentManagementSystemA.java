@@ -19,6 +19,7 @@ abstract class Person{
     public String getEmail(){
         return email;
     }
+    public abstract void displayInfo();
 }
 
 class Student extends Person{
@@ -33,9 +34,9 @@ class Student extends Person{
     }
 
     public void displayInfo(){
-        System.out.println("Student ID : "+getId);
-        System.out.println("Name       : "+getName);
-        System.out.println("Email      : "+getEmail);
+        System.out.println("Student ID : "+getId());
+        System.out.println("Name       : "+getName());
+        System.out.println("Email      : "+getEmail());
         System.out.println("Course     : "+course);
     }
 }
