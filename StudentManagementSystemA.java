@@ -1,45 +1,48 @@
 import java.util.Scanner;
 
-class Student{
-    private String studentId;
-    private String studentName;
+abstract class Person{
+    private String id;
+    private String name;
     private String email;
-    private String course;
 
-    public Student(String studentId,String studentName,String email,String course){
-        this.studentId=studentId;
-        this.studentName=studentName;
+    public Person(String id,String name,String email){
+        this.id=id;
+        this.name=name;
         this.email=email;
-        this.course=course;
     }
-
-    public String getStudentId(){
-        return studentId;
+    public String getId(){
+        return id;
     }
-
-    public String getStudentName(){
-        return studentName;
+    public String getName(){
+        return name;
     }
-
     public String getEmail(){
         return email;
     }
+}
 
+class Student extends Person{
+    private String course;
+
+    public Student(String studentId,String studentName,String email,String course){
+        super(studentId,studentName,email);
+        this.course=course;
+    }
     public String getCourse(){
         return course;
     }
 
     public void displayInfo(){
-        System.out.println("Student ID : "+studentId);
-        System.out.println("Name       : "+studentName);
-        System.out.println("Email      : "+email);
+        System.out.println("Student ID : "+getId);
+        System.out.println("Name       : "+getName);
+        System.out.println("Email      : "+getEmail);
         System.out.println("Course     : "+course);
     }
 }
 
 
-public class StudentManagementSystem1{
-    public static void main(String[] args){
+public class StudentManagementSystemA{
+    public static void main(String[]args){
         Scanner input=new Scanner(System.in);
 
         System.out.print("Enter Student ID : ");
@@ -52,8 +55,8 @@ public class StudentManagementSystem1{
         String email=input.nextLine();
 
         System.out.println("Select Course");
-        System.out.println("1. Java Programming");
-        System.out.println("2. Database Systems");
+        System.out.println("1.Java Programming");
+        System.out.println("2.Database Systems");
 
         System.out.print("Enter Choice : ");
         int choice=input.nextInt();
@@ -70,10 +73,15 @@ public class StudentManagementSystem1{
 
         Student student1=new Student(id,name,email,course);
 
-
         System.out.println("\nStudent Summary");
         student1.displayInfo();
 
         input.close();
     }
 }
+
+
+       
+
+        
+    
